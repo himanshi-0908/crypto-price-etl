@@ -1,67 +1,69 @@
-Crypto Price ETL
 
-A simple end-to-end ETL pipeline that fetches real-time cryptocurrency prices, processes them, and stores the cleaned data for analytics and dashboard use.
 
-Features
 
-Pulls live price data from a public crypto API
 
-Cleans, formats, and validates incoming data
+# **Crypto Price ETL**
 
-Loads processed data into a database (PostgreSQL / SQLite)
+Tracks crypto prices through a lightweight ETL pipeline. It pulls live market data, cleans it, and stores it for analysis or dashboards.
 
-Supports scheduled runs using cron or Airflow
+---
 
-Modular structure for adding more coins or data points
+## **What This Project Does**
 
-Tech Stack
+* Fetches live prices from a crypto API
+* Cleans and validates the response
+* Loads everything into a database
+* Can run on a schedule (cron/Airflow)
 
-Python
+---
 
-Requests / HTTPX
+## How It Works**
 
-Pandas
+Extract → Transform → Load
 
-PostgreSQL / SQLite
+* **Extract:** Get price, volume, market cap, timestamps
+* **Transform:** Standardize fields, drop invalid rows
+* **Load:** Save to PostgreSQL/SQLite
 
-Airflow or Cron (optional)
+---
 
-Workflow
+## **Tech Used**
 
-Extract – Fetch price, market cap, volume, and timestamps
+* Python
+* Pandas
+* Requests/HTTPX
+* PostgreSQL or SQLite
+* Airflow/Cron (optional)
 
-Transform – Convert to proper formats, remove nulls, align schema
+---
 
-Load – Insert into the database for long-term storage or dashboards
+## **Structure**
 
-Folder Structure
+```
 crypto-price-etl/
-│── extract/
-│   └── fetch_prices.py
-│── transform/
-│   └── clean_data.py
-│── load/
-│   └── load_to_db.py
-│── utils/
-│── main.py
-│── requirements.txt
-│── README.md
+  extract/
+  transform/
+  load/
+  utils/
+  main.py
+  requirements.txt
+```
 
-Run the Project
+---
 
-Install packages:
+## **Run It**
 
+Install dependencies:
+
+```
 pip install -r requirements.txt
+```
 
+Start ETL:
 
-Start the pipeline:
-
+```
 python main.py
+```
 
-Future Improvements
 
-Add more exchanges and data sources
 
-Integrate with Supabase or BigQuery
-
-Add a live dashboard (Streamlit)
